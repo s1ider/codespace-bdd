@@ -8,5 +8,4 @@ Feature: Login
 			| Password      | codespace             |  
 		When Click on button 'Login'
 		Then Header 'My Dashboard' should be displayed
-		Then Stop
-
+		

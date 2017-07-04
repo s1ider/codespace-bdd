@@ -2,7 +2,7 @@ from .base_page import BasePage
 import support.ui as ui
 
 
-class Cart(BasePage):
+class CartPage(BasePage):
     def __init__(self, browser):
         super(Cart, self).__init__(browser)
         self.url = 'http://magento-demo.lexiconn.com/checkout/cart/'
