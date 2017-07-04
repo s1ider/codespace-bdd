@@ -22,4 +22,10 @@ def step(context, name):
 @then("Header '{name}' should be displayed")
 def step(context, name):
 	assert ui.Header(context.browser, name).is_visible
-	
+
+
+@when("Fail")
+@then("Fail")
+@then("Stop")
+def step(context):
+	assert False
