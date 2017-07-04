@@ -17,4 +17,9 @@ def step(context):
 @when("Click on button '{name}'")
 def step(context, name):
 	ui.Button(context.browser, name).click()
+
+
+@then("Header '{name}' should be displayed")
+def step(context, name):
+	assert ui.Header(context.browser, name).is_visible
 	
