@@ -11,13 +11,14 @@ def step(context, page):
     pages_class(context.browser).open()
 
 
-@given("I am logged in with {credentials} credentials")
+@given("Logged in with {credentials} credentials")
 def step(context, credentials):
-    creds = context.settings['credentials'][credentials]
-    login, pwd = creds.values()
-    page = pages.LoginPage(context.browser)
-    page.open()
-    page.login(login, pwd)
+    if not pages.LoginPage(context.browser).is_logged_in:
+        creds = context.settings['credentials'][credentials]
+        login, pwd = creds.values()
+        page = pages.LoginPage(context.browser)
+        page.open()
+        page.login(login, pwd)
 
 
 @when("Fill text form")

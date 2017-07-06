@@ -1,6 +1,6 @@
 from .base_page import BasePage
-import yaml
 import support.ui as ui
+
 
 class LoginPage(BasePage):
     def __init__(self, browser):
@@ -19,7 +19,15 @@ class LoginPage(BasePage):
             # search
             'search_input': '//input[@id="search"]',
             'search_results': '//div[@id="search_autocomplete"]/ul/li[@title]',
+
+            # login criteria
+            'login_criteria': '//a[@title="Log Out"]',
         }
+
+    @property
+    def is_logged_in(self):
+        return bool(self.find_elements('login_criteria'))
+
 
     def login(self, email, pwd):
         email_input = self.find_element('email')
