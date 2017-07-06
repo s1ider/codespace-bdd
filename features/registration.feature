@@ -1,7 +1,9 @@
 Feature: Registration
 
+    Background: 
+        Given I am on 'Registration' page
+
 	Scenario: Almost successfull registration
-		Given I am on 'Registration' page
 		When Fill form:
 			| label                  | value          | type     |  
 			| First Name             | Robot          | input    |  
@@ -12,4 +14,15 @@ Feature: Registration
 			| Sign Up for Newsletter | x              | checkbox |  
 		When Click on button 'Register'
 		Then Header 'Create an Account' should be displayed
-		Then Fail
+
+    @w
+    Scenario: Successfull registration
+        When Fill text form:
+            | label                  | value          |
+            | First Name             | Robot          |
+            | Last Name              | Bobot          |
+            | Email Address          | <random_email> |
+            | Password               | superstrong!1  |
+            | Confirm Password       | superstrong!1  |
+        When Click on button 'Register'
+        Then Text 'Thank you for registering with Madison Island.' should be displayed

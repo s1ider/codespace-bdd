@@ -1,4 +1,5 @@
 from .base_element import BaseElement
+from support.placeholders import placeholders
 
 
 class Input(BaseElement):
@@ -21,6 +22,10 @@ class Input(BaseElement):
     def fill(self, text):
         # fills input with text
         self.element.clear()
+
+        if text in placeholders:
+            text = placeholders[text]
+
         self.element.send_keys(text)
 
 # USAGE:
