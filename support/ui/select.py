@@ -19,3 +19,6 @@ class Select(BaseElement):
     def select_by_text(self, text):
         locator = self.locator + '/option[text() = "{}"]'.format(text)
         self.browser.find_element_by_xpath(locator).click()
+
+    fill = select_by_text
+    

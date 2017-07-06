@@ -4,7 +4,7 @@ import support.ui as ui
 
 class CartPage(BasePage):
     def __init__(self, browser):
-        super(Cart, self).__init__(browser)
+        super(CartPage, self).__init__(browser)
         self.url = 'http://magento-demo.lexiconn.com/checkout/cart/'
         self.locators = {
             'grand_total': '//table[@id="shopping-cart-totals-table"]'
@@ -18,7 +18,7 @@ class CartPage(BasePage):
 
     @property
     def products(self):
-        return [ProductInCart(self.browser, index=i+1)
+        return [ProductInCart(self.browser, index=i + 1)
                 for i in range(ProductInCart(self.browser).count)]
 
         # example without list comprehensions:

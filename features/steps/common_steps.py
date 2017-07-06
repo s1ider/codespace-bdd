@@ -1,5 +1,4 @@
 from behave import given, when, then
-import support.pages as pages
 import support.ui as ui
 import support.utils as utils
 
@@ -15,6 +14,12 @@ def step(context, page):
 def step(context):
     for row in context.table:
         ui.Input(context.browser, row['label']).fill(row['value'])
+
+@when("Fill form")
+def step(context):
+    for row in context.table:
+        element = utils.get_ui_class(row['type'])
+        element(context.browser, row['label']).fill(row['value'])
 
 
 @when("Click on {obj_type} '{obj_name}'")
