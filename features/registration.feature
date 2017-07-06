@@ -15,7 +15,6 @@ Feature: Registration
 		When Click on button 'Register'
 		Then Header 'Create an Account' should be displayed
 
-    @w
     Scenario: Successfull registration
         When Fill text form:
             | label                  | value          |
@@ -25,4 +24,16 @@ Feature: Registration
             | Password               | superstrong!1  |
             | Confirm Password       | superstrong!1  |
         When Click on button 'Register'
-        Then Text 'Thank you for registering with Madison Island.' should be displayed
+        Then Success message about registration should be displayed
+
+    Scenario: Already registered user
+        When Fill text form:
+            | label            | value                 |  
+            | First Name       | Robot                 |  
+            | Last Name        | Bobot                 |  
+            | Email Address    | s1iderorama@gmail.com |  
+            | Password         | superstrong!1         |  
+            | Confirm Password | superstrong!1         |  
+        When Click on button 'Register'
+        Then Text 'Three is already an account with this email address' should be displayed
+

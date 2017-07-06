@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from selenium.common.exceptions import NoSuchElementException
+import support.ui as ui
 
 
 class RegistrationPage(BasePage):
@@ -32,6 +33,11 @@ class RegistrationPage(BasePage):
             return False
         else:
             return True
+
+    @property
+    def is_register_success(self):
+        return ui.Text(self.browser, 
+                       'Thank you for registering with Madison Island.').is_visible
 
     def open(self):
         self.browser.get(self.url)

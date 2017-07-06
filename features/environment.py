@@ -33,6 +33,12 @@ def before_all(context):
     context.browser.implicitly_wait(1)
 
 
+def after_scenario(context, scenario):
+    if scenario.status == 'failed':
+        filename = os.path.join('screenshots', scenario.name + '.png')
+        context.browser.save_screenshot(filename)
+
+
 def after_all(context):
     if not context.failed:
         context.browser.quit()

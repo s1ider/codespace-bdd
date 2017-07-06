@@ -2,6 +2,7 @@ from behave import given, when, then
 import support.ui as ui
 import support.pages as pages
 import support.utils as utils
+from selenium.common.exceptions import NoSuchElementException
 
 
 @given("I am on '{page}' page")
@@ -34,9 +35,20 @@ def step(context):
 
 
 @when("Click on {obj_type} '{obj_name}'")
-def step(context, obj_type, obj_name):
+def step_click(context, obj_type, obj_name):
     cls = utils.get_ui_class(obj_type)
     cls(context.browser, obj_name).click()
+
+
+@when("Try click on {obj_type} '{obj_name}'")
+def step(context, obj_type, obj_name):
+    try:
+        context.execute_steps(u"""
+            when Click on {} '{}'
+            """.format(obj_type, obj_name))
+    except NoSuchElementException:
+        context.logger.warn("Element {} {} not found".format(obj_type, obj_name))
+        pass
 
 
 @then("{obj_type} '{obj_name}' should be displayed")
@@ -50,3 +62,5 @@ def step(context, obj_type, obj_name):
 @then("Stop")
 def step(context):
     assert False
+
+

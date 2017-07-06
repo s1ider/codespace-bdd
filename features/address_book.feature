@@ -1,9 +1,12 @@
 Feature: Address Book
 
-    Scenario: Add new address
+    Background:
         Given Logged in with default credentials
         Given I am on 'AddressBook' page
-        When Click on button 'Add New Address'
+
+    Scenario: Add new address
+        When Try click on button 'Add New Address'
+        When Fill checkout form with default values
         When Fill form:
             | label                             | value         | type     |  
             | First Name                        | Robot         | input    |  
@@ -18,4 +21,16 @@ Feature: Address Book
             | Use as my default billing address | x             | checkbox |  
         When Click on button 'Save Address'
         Then Text 'The address has been saved.' should be displayed
+
+    Scenario Outline: Edit <address>
+        When Click on link '<address>'
+        When Fill text form:
+            | label      | value     |  
+            | First Name | Robobobot |  
+        When Click on button 'Save Address'
+        Then Text 'The address has been saved.' should be displayed
         
+    Examples:
+        | address                 |  
+        | Change Billing Address  |  
+        | Change Shipping Address |  
