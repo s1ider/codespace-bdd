@@ -4,5 +4,9 @@ implicit_timeout: 1
 explicit_timeout: 10
 
 credentials:
-  login: 's1iderorama@gmail.com'
-  pwd: '123123'
+    default:
+        login: s1iderorama@gmail.com
+        psswd: codespace
+    vasya:
+        login: vasya@gmail.com
+        psswd: superpass

@@ -1,5 +1,6 @@
 from behave import given, when, then
 import support.ui as ui
+import support.pages as pages
 import support.utils as utils
 
 
@@ -8,6 +9,15 @@ def step(context, page):
     pages = __import__('support.pages', fromlist=[str(page.lower())])
     pages_class = getattr(pages, page + 'Page')
     pages_class(context.browser).open()
+
+
+@given("I am logged in with {credentials} credentials")
+def step(context, credentials):
+    creds = context.settings['credentials'][credentials]
+    login, pwd = creds.values()
+    page = pages.LoginPage(context.browser)
+    page.open()
+    page.login(login, pwd)
 
 
 @when("Fill text form")
