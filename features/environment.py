@@ -28,6 +28,8 @@ def before_all(context):
         with open('browser.session', 'w') as f:
             f.write("{0} {1}".format(context.browser.session_id,
                                      context.browser.command_executor._url))
+
+    # context.browser = webdriver.Chrome()
     context.browser.implicitly_wait(1)
 
 
