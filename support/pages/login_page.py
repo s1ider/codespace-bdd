@@ -48,3 +48,10 @@ class LoginPage(BasePage):
         header, link = path.split('->')
         ui.Link(self.browser, header).hover()
         ui.Link(self.browser, link).click()
+
+    def filter_by(self, category, name):
+        loc_filter = ('//dt[text() = "{0}"]/following-sibling::dd[1]'
+                      '//li/a[starts-with(normalize-space(., "{1}")]'
+                      ).format(category, name)
+
+        self.browser.find_element_by_xpath(loc_filter).click()
