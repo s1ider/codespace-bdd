@@ -3,6 +3,7 @@ import support.ui as ui
 import support.pages as pages
 import support.utils as utils
 from selenium.common.exceptions import NoSuchElementException
+from hamcrest import *
 
 
 @given("I am on '{page}' page")
@@ -63,4 +64,11 @@ def step(context, obj_type, obj_name):
 def step(context):
     assert False
 
+
+@when("Navigate to '{path}'")
+def step(context, path):
+    # Header->Link
+    header, link = path.split('->')
+    ui.Link(context.browser, header).hover()
+    ui.Link(context.browser, link).click()
 

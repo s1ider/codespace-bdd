@@ -28,7 +28,6 @@ class LoginPage(BasePage):
     def is_logged_in(self):
         return bool(self.find_elements('login_criteria'))
 
-
     def login(self, email, pwd):
         email_input = self.find_element('email')
         pwd_input = self.find_element('password')
