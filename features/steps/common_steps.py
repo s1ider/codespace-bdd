@@ -72,3 +72,8 @@ def step(context, path):
     ui.Link(context.browser, header).hover()
     ui.Link(context.browser, link).click()
 
+
+@when("Confirm alert")
+def step(context):
+    context.browser.switch_to.alert.accept()
+    
