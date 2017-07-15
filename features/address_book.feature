@@ -6,7 +6,6 @@ Feature: Address Book
 
     Scenario: Add new address
         When Try click on button 'Add New Address'
-        When Fill checkout form with default values
         When Fill form:
             | label                             | value         | type     |  
             | First Name                        | Robot         | input    |  
