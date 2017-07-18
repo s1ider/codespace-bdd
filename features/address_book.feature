@@ -4,6 +4,7 @@ Feature: Address Book
         Given Logged in with default credentials
         Given I am on 'AddressBook' page
 
+@ww
     Scenario: Add new address
         When Try click on button 'Add New Address'
         When Fill form:
@@ -33,3 +34,10 @@ Feature: Address Book
         | address                 |  
         | Change Billing Address  |  
         | Change Shipping Address |  
+
+    Scenario: Delete address
+        When Click on link 'Delete Address'
+        When Confirm alert
+        Then Text 'The address has been deleted.' should be displayed
+        
+        

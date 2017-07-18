@@ -18,3 +18,7 @@ class Product(BaseElement):
     def add_to_compare(self):
         loc = './/a[text() = "Add to Compare"]'
         self.element.find_element_by_xpath(loc).click()
+
+    def add_to_wishlist(self):
+        loc = './/a[text() = "Add to Wishlist"]'
+        self.element.find_element_by_xpath(loc).click()
