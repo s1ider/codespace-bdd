@@ -76,4 +76,7 @@ def step(context, path):
 @when("Confirm alert")
 def step(context):
     context.browser.switch_to.alert.accept()
+
+
+@when("Add product to ")
     
