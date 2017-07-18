@@ -22,6 +22,7 @@ Feature: Address Book
         When Click on button 'Save Address'
         Then Text 'The address has been saved.' should be displayed
 
+    @smoke
     Scenario Outline: Edit <address>
         When Click on link '<address>'
         When Fill text form:

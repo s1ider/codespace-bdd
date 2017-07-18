@@ -1,5 +1,6 @@
 Feature: Filters
 
+    
     Scenario: Filter by price
         Given I am on 'Login' page
         When Navigate to 'Women->Pants & Denim'
@@ -8,7 +9,7 @@ Feature: Filters
         When Filter by 'Color->Black'
         Then Stop
 
-    @w
+    @smoke
     Scenario: Apply filter
         Given I am on 'Login' page
         When Navigate to 'Accessories->Shoes'

@@ -1,6 +1,6 @@
 Feature: Advanced Search
 
-
+	@smoke
 	Scenario: Hold by beer
 		Given I am on 'Login' page
 		When Click on link 'Advanced Search'
