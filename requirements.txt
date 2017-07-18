@@ -1,8 +1,13 @@
 behave==1.2.5
+certifi==2017.4.17
+chardet==3.0.4
 enum34==1.1.6
+idna==2.5
 parse==1.8.2
 parse-type==0.3.4
 PyHamcrest==1.9.0
 PyYAML==3.12
+requests==2.18.1
 selenium==3.4.3
 six==1.10.0
+urllib3==1.21.1
